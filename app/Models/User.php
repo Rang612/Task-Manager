@@ -42,4 +42,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function table(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Table::class, 'owner_id');
+    }
+    public function task(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Task::class, 'owner_id');
+    }
 }

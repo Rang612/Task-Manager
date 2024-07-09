@@ -25,19 +25,9 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div class=" text-red h1">Total</div>
-                                {{--                                <div class="ms-auto lh-1">--}}
-                                {{--                                    <div class="dropdown">--}}
-                                {{--                                        <a class="dropdown-toggle text-muted" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>--}}
-                                {{--                                        <div class="dropdown-menu dropdown-menu-end">--}}
-                                {{--                                            <a class="dropdown-item active" href="#">Last 7 days</a>--}}
-                                {{--                                            <a class="dropdown-item" href="#">Last 30 days</a>--}}
-                                {{--                                            <a class="dropdown-item" href="#">Last 3 months</a>--}}
-                                {{--                                        </div>--}}
-                                {{--                                    </div>--}}
-                                {{--                                </div>--}}
                             </div>
                             <div class="d-flex align-items-baseline">
-                                <div class="h1 mb-0 me-2 ">20</div>
+                                <div class="h1 mb-0 me-2 ">{{$totalCounts}}</div>
                                 <div class="me-auto">
                         <span class="text-red d-inline-flex align-items-center lh-1">
                          Task <!-- Download SVG icon from http://tabler-icons.io/i/trending-up -->
@@ -53,19 +43,9 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div class="text-green h1">In Progress</div>
-{{--                                <div class="ms-auto lh-1">--}}
-{{--                                    <div class="dropdown">--}}
-{{--                                        <a class="dropdown-toggle text-muted" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>--}}
-{{--                                        <div class="dropdown-menu dropdown-menu-end">--}}
-{{--                                            <a class="dropdown-item active" href="#">Last 7 days</a>--}}
-{{--                                            <a class="dropdown-item" href="#">Last 30 days</a>--}}
-{{--                                            <a class="dropdown-item" href="#">Last 3 months</a>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
                             </div>
                             <div class="d-flex align-items-baseline">
-                                <div class="h1 mb-0 me-2 ">10</div>
+                                <div class="h1 mb-0 me-2 ">{{$countip}}</div>
                                 <div class="me-auto">
                         <span class="text-green d-inline-flex align-items-center lh-1">
                          Task <!-- Download SVG icon from http://tabler-icons.io/i/trending-up -->
@@ -82,19 +62,9 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div class="text-yellow h1 ">To Do</div>
-{{--                                <div class="ms-auto lh-1">--}}
-{{--                                    <div class="dropdown">--}}
-{{--                                        <a class="dropdown-toggle text-muted" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>--}}
-{{--                                        <div class="dropdown-menu dropdown-menu-end">--}}
-{{--                                            <a class="dropdown-item active" href="#">Last 7 days</a>--}}
-{{--                                            <a class="dropdown-item" href="#">Last 30 days</a>--}}
-{{--                                            <a class="dropdown-item" href="#">Last 3 months</a>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
                             </div>
                             <div class="d-flex align-items-baseline">
-                                <div class="h1 mb-3 me-2">6</div>
+                                <div class="h1 mb-3 me-2">{{$counttodo}}</div>
                                 <div class="me-auto">
                         <span class="text-yellow d-inline-flex align-items-center lh-1">
                           Task <!-- Download SVG icon from http://tabler-icons.io/i/minus -->
@@ -110,19 +80,9 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div class=" text-blue h1">Done</div>
-{{--                                <div class="ms-auto lh-1">--}}
-{{--                                    <div class="dropdown">--}}
-{{--                                        <a class="dropdown-toggle text-muted" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>--}}
-{{--                                        <div class="dropdown-menu dropdown-menu-end">--}}
-{{--                                            <a class="dropdown-item active" href="#">Last 7 days</a>--}}
-{{--                                            <a class="dropdown-item" href="#">Last 30 days</a>--}}
-{{--                                            <a class="dropdown-item" href="#">Last 3 months</a>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
                             </div>
                             <div class="d-flex align-items-baseline">
-                                <div class="h1 mb-3 me-2">9</div>
+                                <div class="h1 mb-3 me-2">{{$countdone}}</div>
                                 <div class="me-auto">
                         <span class="text-blue d-inline-flex align-items-center lh-1">
                           Task <!-- Download SVG icon from http://tabler-icons.io/i/trending-up -->
@@ -132,6 +92,61 @@
 {{--                            <div id="chart-active-users" class="chart-sm"></div>--}}
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Task List</h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="table card-table table-vcenter text-nowrap datatable">
+                        <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Description</th>
+                            <th>Table</th>
+                            <th>Deadline</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($listTable as $table)
+
+{{--                            @foreach($item->table as $table)--}}
+                                @foreach($table->taskRecord->task as $task)
+
+
+                                    <tr>
+                            <td><span class="text-muted">{{$task->title}}</span></td>
+                            <td><span  class="text-reset" tabindex="-1">{{$task->description}}</span></td>
+                                <td><span class="text-muted">{{$table->table_name}}</span></td>
+
+                                <td><span class="text-muted">{{$task->deadline}}</span></td>
+                                <td><span class="text-muted">{{$task->priority}}</span></td>
+                                        @if($task->status == "inprocess")
+                                            <td>
+                                                <span class="badge bg-success me-1"></span> Processing
+                                            </td>
+                                        @elseif($task->status == "todo")
+                                            <td>
+                                                <span class="badge bg-warning me-1"></span> To Do
+                                            </td>
+                                        @else
+                                            <td>
+                                                <span class="badge bg-secondary me-1"></span> Done
+                                            </td>
+                                        @endif
+
+                                    </tr>
+                        @endforeach
+                            @endforeach
+{{--                        @endforeach--}}
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
