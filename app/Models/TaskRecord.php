@@ -14,4 +14,8 @@ class TaskRecord extends Model
     {
         return $this->hasMany(Task::class, 'task_record_id','task_record_id');
     }
+    public function table(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Table::class, 'table_id', 'table_id');
+    }
 }

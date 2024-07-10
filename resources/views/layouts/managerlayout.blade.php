@@ -18,7 +18,7 @@
     <!-- Nav Bar END -->
     <div class="page-wrapper">
         <!-- Page header -->
-        @include('profile.manager.pageheader')
+{{--        @include('profile.manager.pageheader')--}}
         <!-- Page header END -->
         <div class="container-fluid">
             @yield("content")

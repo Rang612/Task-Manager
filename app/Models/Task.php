@@ -9,9 +9,11 @@ class Task extends Model
 {
     use HasFactory;
     protected $table = 'card_task';
+    protected $primaryKey = 'task_id';
+
     protected $fillable = [
         'owner_id',
-        'table_id',
+        'task_record_id',
         'title',
         'description',
         'status',
@@ -28,6 +30,6 @@ class Task extends Model
     }
     public function taskRecord(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(taskRecord::class, 'task_record_id', 'task_id');
+        return $this->belongsTo(TaskRecord::class, 'task_record_id', 'task_record_id');
     }
 }

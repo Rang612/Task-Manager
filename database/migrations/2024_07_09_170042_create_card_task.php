@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('card_task', function (Blueprint $table) {
             $table->id('task_id');
             $table->unsignedBigInteger('owner_id');
-            $table->unsignedBigInteger('table_id');
+            $table->unsignedBigInteger('table_record_id');
             $table->string('title');
             $table->text('description')->nullable();
             $table->string('status', 50)->nullable();
