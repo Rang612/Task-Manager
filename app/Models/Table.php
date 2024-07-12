@@ -9,6 +9,7 @@ class Table extends Model
 {
     use HasFactory;
     protected $table = 'table';
+
     public function owner()
     {
         return $this->belongsTo(User::class, 'owner_id');

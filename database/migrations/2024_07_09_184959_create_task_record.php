@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('task_record', function (Blueprint $table) {
             $table->id('task_record_id');
             $table->unsignedBigInteger('table_id');
+            $table->timestamps(); // Includes both created_at and updated_at
+
         });
     }
 

@@ -43,6 +43,11 @@ Route::group(['middleware' => ['auth:web']], function () {
     Route::get('/update_form_task/{task_id}', [App\Http\Controllers\TaskListController::class, 'formUpdate'])->name('update_form_task');
     Route::post('/update_task/{task_id}', [App\Http\Controllers\TaskListController::class, 'update'])->name('update_task');
     Route::get('/search_table', [App\Http\Controllers\TableController::class, 'search'])->name('search_table');
+    Route::get('/trial', function () {
+        return view('user.trial_update');
+    });
+    Route::get('/add_table', [App\Http\Controllers\TableController::class, 'addTable'])->name('add_table');
+    Route::post('/store_table', [App\Http\Controllers\TableController::class, 'storeTable'])->name('store_table');
 
 
 });
